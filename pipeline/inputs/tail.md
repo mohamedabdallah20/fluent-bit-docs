@@ -38,7 +38,7 @@ The plugin supports the following configuration parameters:
 | `File_Cache_Advise` | Set the `posix_fadvise` in `POSIX_FADV_DONTNEED` mode. This reduces the usage of the kernel file cache. This option is ignored if not running on Linux. | `On` |
 | `Threaded` | Indicates whether to run this input in its own [thread](../../administration/multithreading.md#inputs). | `false` |
 | `Unicode.Encoding` | Set the Unicode character encoding of the file data. This parameter requests two-byte aligned chunk and buffer sizes. If data is not aligned for two bytes, Fluent Bit will use two-byte alignment automatically to avoid character breakages on consuming boundaries. Supported values: `UTF-16LE`, `UTF-16BE`, and `auto`. | _none_ |
-| `Generic.Encoding` | Set the encoding which the origin of character encoding. Currently, ShiftJIS, UHC, GBK, GB18030, Big5, Win866, Win874, Win1250, Win1251, Win1252, Win2513, Win1254, Win1255, Win1256 are supported. | _none_ |
+| `Generic.Encoding` | Set the non-Unicode encoding of the file data. Supported values: `ShiftJIS`, `UHC`, `GBK`, `GB18030`, `Big5`, `Win866`, `Win874`, `Win1250`, `Win1251`, `Win1252`, `Win2513`, `Win1254`, `Win1255`, and `Win1256`. | _none_ |
 
 {% hint style="info" %}
 If the database parameter `DB` isn't specified, by default the plugin reads each target file from the beginning. This might cause unwanted behavior. For example, when a line is bigger than `Buffer_Chunk_Size` and `Skip_Long_Lines` isn't turned on, the file will be read from the beginning of each `Refresh_Interval` until the file is rotated.
